@@ -1,0 +1,13 @@
+{
+  "name": "kartomto",
+  "version": "1.0.0",
+  "description": "",
+  "main": "kartomto.js",
+  "scripts": {
+    "start": "node kartomto.js"
+  },
+   "dependencies": {
+    "discord.js": "12.2.0",
+    "request": "2.81.0"
+  }
+}
