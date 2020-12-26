@@ -47,6 +47,23 @@ bot.on ("message", message => {
             return;
         }
 
+        if(message.channel.type == "dm") {
+
+            let dmEmbed = new Discord.MessageEmbed()
+            .setTitle ("Privát üzenetet kaptam!")
+            .setColor("RANDOM")
+            .addField("\u200B", "\u200B")
+            .addField("Üzenet küldője", `${message.author} \n ${message.author.username}`)
+            .addField("\u200B", "\u200B")
+            .addField("Üzenet tartalma", `${message.content}`)
+            .addField("\u200B", "\u200B")
+            .setFooter (bot.user.username, "https://cdn.discordapp.com/attachments/650746482168823868/792480864939278387/kartomto.png")
+            .setTimestamp();
+
+            bot.users.cache.get("352823413301051392").send(dmEmbed);
+
+        }
+
 
 
         if (message.channel.id == "790608160691847200") {
@@ -123,4 +140,6 @@ bot.on("guildMemberAdd", guildMember => {
       
 
 });
+
+
 
