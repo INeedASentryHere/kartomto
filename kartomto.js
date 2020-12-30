@@ -105,6 +105,36 @@ bot.on ("message", message => {
      
          }
 
+         if (message.content.startsWith("!users")) {
+
+            let guildMap = bot.users.cache.size;
+            
+      
+            message.channel.send(`Jelenleg **${guildMap}** felhasználót vagyok képes elérni.`);
+      
+            return;
+           }
+
+
+         if (message.content.toLowerCase().startsWith("!names")) {
+
+
+            let szerverek = bot.guilds.cache.map(g => g.name);
+            let szerverekID = bot.guilds.cache.map(g => g.id);
+           
+        
+         
+        
+              for (let i = 0; i < szerverek.length; i++) {
+        
+                  let memberCount = bot.guilds.cache.get(szerverekID[i]).members.cache.size;
+                  
+                  message.channel.send(`${szerverek[i]} --- **${memberCount}** tag`);
+                
+              }
+                
+      }
+
      
         
 
@@ -140,6 +170,4 @@ bot.on("guildMemberAdd", guildMember => {
       
 
 });
-
-
 
