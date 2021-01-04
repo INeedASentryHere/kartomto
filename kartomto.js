@@ -1,5 +1,6 @@
 
 
+
 const { error } = require('console');
 const Discord = require(`discord.js`);
 const bot = new Discord.Client();
@@ -14,7 +15,7 @@ bot.on (`ready`, () => {
    
     try {
         console.log(`Bejelentkezve mint ${bot.user.tag}!`);
-        const status = `Love`; 
+        const status = `${bot.guilds.cache.size} szerver`; 
         bot.user.setActivity ( status, {type: 5 });
         
        
@@ -66,7 +67,7 @@ bot.on ("message", message => {
 
 
 
-        if (message.channel.id == "790608160691847200") {
+        if (message.channel.id == "790608160691847200" || message.channel.id == "795698506907516929") {
 
             message.react("✅")
             .then(() => message.react("❌"));
@@ -153,7 +154,7 @@ bot.on("guildMemberAdd", guildMember => {
 
   try {
 
-     if (guildMember.guild.id === "510895729351327785") {
+     if (guildMember.guild.id != "417247359551012871") {
 
         guildMember.send(`***Üdv a ${guildMember.guild.name} szerveren! \n Esetleg ha kíváncsi lennél a Magyar LoL Közösség szerverünkre is, itt egy meghívó, amivel felmehetsz oda is társalogni:*** \n https://discord.gg/fvYWhXp 😎`);
       
