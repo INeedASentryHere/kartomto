@@ -15,9 +15,12 @@ bot.on (`ready`, () => {
    
     try {
         console.log(`Bejelentkezve mint ${bot.user.tag}!`);
-        const status = `${bot.guilds.cache.size} szerver`; 
-        bot.user.setActivity ( status, {type: 5 });
         
+        setInterval(() => {
+            const status = `${bot.guilds.cache.size} szerver`; 
+            bot.user.setActivity ( status, {type: 5 });
+        }, 30000);
+
        
     
         
