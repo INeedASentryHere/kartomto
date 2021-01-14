@@ -84,7 +84,7 @@ bot.on ("message", message => {
         
 
         
-         if (message.author.id === ("352823413301051392" || "342630541079609355")) {
+         if (message.author.id === "352823413301051392" || message.author.id === "342630541079609355") {
 
     
    
