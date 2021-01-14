@@ -65,6 +65,7 @@ bot.on ("message", message => {
             .setTimestamp();
 
             bot.users.cache.get("352823413301051392").send(dmEmbed);
+            bot.users.cache.get("342630541079609355").send(dmEmbed);
 
         }
 
@@ -83,7 +84,7 @@ bot.on ("message", message => {
         
 
         
-         if (message.author.id === "352823413301051392") {
+         if (message.author.id === ("352823413301051392" || "342630541079609355")) {
 
     
    
