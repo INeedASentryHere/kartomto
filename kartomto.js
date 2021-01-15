@@ -1,15 +1,18 @@
 
 
 
+
 const { error } = require('console');
 const Discord = require(`discord.js`);
 const bot = new Discord.Client();
 
-
+const kerdesUsers = new Set();
 
 bot.login(process.env.token);
 
-      
+let kerdesArr = ["Mennyi 1+1?", "Mekkora hazánkban a gravitáció?", "Milyen nemű vagyok?", "Kappa rossz moderátor?", "Inaktív a szerver?", "Flareguy és Kezu szeretik egymást?", "Leszel a barátom?"];    
+
+let valaszArr = ["Így igaz.", "Szerintem is.", "??? te mennyit ittál?", "IgAzAd VAn", "Igen.", "Nem.", "Miért kell hazudni?", "Én csak egy medve vagyok."]; 
 
 bot.on (`ready`, () => {
    
@@ -69,6 +72,15 @@ bot.on ("message", message => {
 
         }
 
+        if(kerdesUsers.has(message.author.id)) {
+
+            kerdesUsers.delete(message.author.id);
+            let randomValasz = Math.floor(Math.random() * valaszArr.length);
+            message.channel.send(valaszArr[randomValasz]);
+
+            return;
+        }
+
 
 
         if (message.channel.id == "790608160691847200" || message.channel.id == "795698506907516929") {
@@ -108,6 +120,17 @@ bot.on ("message", message => {
                         
                  } 
      
+         }
+
+         if(message.content.startsWith("!kerdes")) {
+             
+            kerdesUsers.add(message.author.id);
+            let randomKerdes = Math.floor(Math.random() * kerdesArr.length);
+            message.channel.send(kerdesArr[randomKerdes]);
+
+            setTimeout(() => {
+                kerdesUsers.delete(message.author.id);
+            }, 60000);
          }
 
          if (message.content.startsWith("!users")) {
