@@ -2,6 +2,7 @@
 
 
 
+
 const { error } = require('console');
 const Discord = require(`discord.js`);
 const bot = new Discord.Client();
@@ -10,9 +11,9 @@ const kerdesUsers = new Set();
 
 bot.login(process.env.token);
 
-let kerdesArr = ["Mennyi 1+1?", "Mekkora hazánkban a gravitáció?", "Milyen nemű vagyok?", "Kappa rossz moderátor?", "Inaktív a szerver?", "Flareguy és Kezu szeretik egymást?", "Leszel a barátom?"];    
+let kerdesArr = ["Mennyi 1+1?", "Mekkora hazánkban a gravitáció?", "Milyen nemű vagyok?", "Kappa rossz moderátor?", "Inaktív a szerver?", "Flareguy és Kezu szeretik egymást?", "Leszel a barátom?", "Milyen nap van ma ?", "szeretsz?", "Mi a véleményed a szerveremrő... vagyis kartomto szerveréről?" , "elössz velem moziba :3 ?", "Éppen aludtam te zsi....vány!!!!", "Ki az apukám?", "Ki az anyukám?", "Mennyit kondizol egy nap?", "Kezu buta?", "Mordekaiser jó jungle?",  "Ki a testvérem?", "Kell discord Nitro?", "Kire hasonlítok?"];    
 
-let valaszArr = ["Így igaz.", "Szerintem is.", "??? te mennyit ittál?", "IgAzAd VAn", "Igen.", "Nem.", "Miért kell hazudni?", "Én csak egy medve vagyok."]; 
+let valaszArr = ["Így igaz.", "Szerintem is.", "??? te mennyit ittál?", "IgAzAd VAn", "Igen.", "Nem.", "Miért kell hazudni?", "Én csak egy medve vagyok.", "Ne mond el Mee6-nak de crusholom.", ":( miért kell bántani", "azért hogy bot vagyok???", "Ez meleg volt." , "du dummer Junge." , "Ich bin einen robot." , "megbocsátok.", "csak kartomto ne tudja meg.", "Mee6 olyan aranyos ^-^", "FlareGuy", "Te milyen beteg vagy?", "még egy ilyen és kenytelen leszek bannolni téged...", "Ayana bot a szerelmem de soha nem fogom elérni őt :(", "Nekem is", "NEM ÉN VAGYOK PEDOMACI HAGYJ MÁR BÉKÉN!!"]; 
 
 bot.on (`ready`, () => {
    
@@ -79,6 +80,19 @@ bot.on ("message", message => {
             message.channel.send(valaszArr[randomValasz]);
 
             return;
+        }
+
+        if (message.content.startsWith("!help")) {
+            const helpEmbed = new Discord.MessageEmbed()
+            .setColor("#ffffff")
+            .setTitle("Útmutató a bot használatához")
+            .setThumbnail("https://cdn.discordapp.com/attachments/493069424899915786/800001120184565770/kartomto.png")
+            .addField('\u200b', '\u200b')
+            .addField("Elérhető parancsok:", "\n `!kerdes`  -  A bot kérdez valamit, amire válaszolnod kell. A válaszod után a bot is válaszol a válaszodra.")
+            .addField('\u200b', '\u200b')
+            .setTimestamp();
+
+            message.channel.send(helpEmbed);
         }
 
 
