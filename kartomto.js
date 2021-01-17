@@ -191,7 +191,7 @@ bot.on ("message", message => {
 
 // szerver join
 
-bot.on("guildMemberAdd", guildMember => {
+/*bot.on("guildMemberAdd", guildMember => {
 
   try {
 
@@ -211,5 +211,5 @@ bot.on("guildMemberAdd", guildMember => {
   }
       
 
-});
+});*/
 
