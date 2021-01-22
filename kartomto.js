@@ -1,8 +1,5 @@
 
 
-
-
-
 const { error } = require('console');
 const Discord = require(`discord.js`);
 const bot = new Discord.Client();
@@ -21,7 +18,7 @@ bot.on (`ready`, () => {
         console.log(`Bejelentkezve mint ${bot.user.tag}!`);
         
         setInterval(() => {
-            const status = `${bot.guilds.cache.size} szerver`; 
+            const status = `${bot.guilds.cache.size} szerver | !help`; 
             bot.user.setActivity ( status, {type: 5 });
         }, 30000);
 
@@ -84,7 +81,7 @@ bot.on ("message", message => {
 
         if (message.content.startsWith("!help")) {
             const helpEmbed = new Discord.MessageEmbed()
-            .setColor("#ffffff")
+            .setColor("#00aaff")
             .setTitle("Útmutató a bot használatához")
             .setThumbnail("https://cdn.discordapp.com/attachments/493069424899915786/800001120184565770/kartomto.png")
             .addField('\u200b', '\u200b')
@@ -97,7 +94,7 @@ bot.on ("message", message => {
 
 
 
-        if (message.channel.id == "790608160691847200" || message.channel.id == "795698506907516929") {
+        if (message.channel.id == "790608160691847200" || message.channel.id == "795698506907516929" || message.channel.id == "802226059705712670") {
 
             message.react("✅")
             .then(() => message.react("❌"));
@@ -191,13 +188,14 @@ bot.on ("message", message => {
 
 // szerver join
 
-/*bot.on("guildMemberAdd", guildMember => {
+bot.on("guildMemberAdd", guildMember => {
 
   try {
 
      if (guildMember.guild.id != "417247359551012871") {
 
-        guildMember.send(`***Üdv a ${guildMember.guild.name} szerveren! \n Esetleg ha kíváncsi lennél a Magyar LoL Közösség szerverünkre is, itt egy meghívó, amivel felmehetsz oda is társalogni:*** \n https://discord.gg/fvYWhXp 😎`);
+        guildMember.send(`***Üdv a ${guildMember.guild.name} szerveren! \n Én egy discord bot vagyok akivel tudsz beszélgetni. Ha szeretnéd hogy a te szervereden is aktív legyek, akkor hívj meg oda is az alábbi meghívóval:*** \n https://discord.com/api/oauth2/authorize?client_id=772436508967436299&permissions=8&scope=bot
+        😎`);
       
 
      }
@@ -211,5 +209,8 @@ bot.on ("message", message => {
   }
       
 
-});*/
+});
+
+
+
 
