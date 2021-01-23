@@ -1,5 +1,6 @@
 
 
+
 const { error } = require('console');
 const Discord = require(`discord.js`);
 const bot = new Discord.Client();
@@ -139,9 +140,6 @@ bot.on ("message", message => {
             let randomKerdes = Math.floor(Math.random() * kerdesArr.length);
             message.channel.send(kerdesArr[randomKerdes]);
 
-            setTimeout(() => {
-                kerdesUsers.delete(message.author.id);
-            }, 60000);
          }
 
          if (message.content.startsWith("!users")) {
@@ -210,7 +208,4 @@ bot.on("guildMemberAdd", guildMember => {
       
 
 });
-
-
-
 
