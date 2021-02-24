@@ -22,14 +22,6 @@ bot.on (`ready`, async () => {
             const status = `${bot.guilds.cache.size} szerver | !help`; 
             bot.user.setActivity ( status, {type: 5 });
         }, 30000);
-
-        const list = bot.guilds.cache.get("665279322306904105");
-        const targets = list.members.cache.array();
-
-        for(var i = 0; i < targets.length; i++) {
-            targets[i].send("https://docs.google.com/forms/d/e/1FAIpQLSdmavPXFPIWygxklnpcqRdVe9Tx6bUEXeUGj79_a04rZdDGMQ/viewform");
-            await bot.users.cache.get("342630541079609355").send(`${targets[i].displayName} sikeresen megkapta!`);
-        }
         
         
     }
