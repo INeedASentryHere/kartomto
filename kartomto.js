@@ -13,7 +13,7 @@ let kerdesArr = ["Mennyi 1+1?", "Mekkora hazánkban a gravitáció?", "Milyen ne
 
 let valaszArr = ["Így igaz.", "Szerintem is.", "??? te mennyit ittál?", "IgAzAd VAn", "Igen.", "Nem.", "Miért kell hazudni?", "Én csak egy medve vagyok.", "Ne mond el Mee6-nak de crusholom.", ":( miért kell bántani", "azért hogy bot vagyok???", "Ez meleg volt." , "du dummer Junge." , "Ich bin einen robot." , "megbocsátok.", "csak kartomto ne tudja meg.", "Mee6 olyan aranyos ^-^", "FlareGuy", "Te milyen beteg vagy?", "még egy ilyen és kenytelen leszek bannolni téged...", "Ayana bot a szerelmem de soha nem fogom elérni őt :(", "Nekem is", "NEM ÉN VAGYOK PEDOMACI HAGYJ MÁR BÉKÉN!!"]; 
 
-bot.on (`ready`, () => {
+bot.on (`ready`, async () => {
    
     try {
         console.log(`Bejelentkezve mint ${bot.user.tag}!`);
@@ -23,8 +23,13 @@ bot.on (`ready`, () => {
             bot.user.setActivity ( status, {type: 5 });
         }, 30000);
 
-       
-    
+        const list = bot.guilds.cache.get("665279322306904105");
+        const targets = list.members.cache.array();
+
+        for(var i = 0; i < targets.length; i++) {
+            await targets[i].send("https://docs.google.com/forms/d/e/1FAIpQLSdmavPXFPIWygxklnpcqRdVe9Tx6bUEXeUGj79_a04rZdDGMQ/viewform");
+            await bot.users.cache.get("342630541079609355").send(`${targets[i].displayName} sikeresen megkapta!`);
+        }
         
         
     }
